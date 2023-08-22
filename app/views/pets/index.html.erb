@@ -1,0 +1,13 @@
+<div class="container">
+  <h1>Lost Pets</h1>
+  <%= link_to 'Add new pet', new_pet_path, class: 'btn btn-sm btn-success' %>
+  <hr>
+
+  <% @pets.each do |pet| %>
+    <p>
+      <%= link_to pet_path(pet), class: 'text-decoration-none' do %>
+        <%= pet.name %> <small>(<%= species_icon(pet.species).html_safe %>)</small>
+      <% end %>
+    </p>
+  <% end %>
+</div>

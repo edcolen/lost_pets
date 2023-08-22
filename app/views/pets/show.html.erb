@@ -1,0 +1,19 @@
+<div class="container">
+  <h2><%= @pet.name %></h2>
+
+  <p>Species: <%= @pet.species %></p>
+  <p>Address: <%= @pet.address %></p>
+  <p>Found on: <%= @pet.found_on.strftime('%d/%m/%Y') %></p>
+
+  <%= link_to pets_path, class: 'btn btn-sm btn-success' do %>
+    <i class="fa-solid fa-backward"></i>
+  <% end %>
+  <%= link_to edit_pet_path(@pet), class: 'btn btn-sm btn-warning' do %>
+    <i class="fa-solid fa-pen-to-square"></i>
+  <% end %>
+  <%= link_to pet_path(@pet),
+    data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'},
+    class: 'btn btn-sm btn-danger' do %>
+    <i class="fa-solid fa-trash"></i>
+  <% end %>
+</div>
